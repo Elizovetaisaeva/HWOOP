@@ -1,12 +1,21 @@
 package transport;
 
-public abstract class Transport {
+import Strategy.abilities.impl.CheckCommonEngine;
+import Strategy.abilities.impl.CheckGusenitsa;
+import Strategy.abilities.impl.CheckTyre;
+import Strategy.abilities.impl.NoTrailerCheck;
+
+public abstract class Transport implements Checkable {
     private String modelName;
     private int wheelsCount;
 
-    public Transport(String modelName, int wheelsCount) {
+    public Transport(String modelName, int wheelsCount, CheckCommonEngine checkCommonEngine, CheckGusenitsa checkGusenitsa, NoTrailerCheck noTrailerCheck) {
         this.modelName = modelName;
         this.wheelsCount = wheelsCount;
+    }
+
+    public Transport(String mercedes, int wheelsCount, CheckCommonEngine checkCommonEngine, CheckTyre checkTyre, NoTrailerCheck noTrailerCheck) {
+
     }
 
     public String getModelName() {
@@ -25,9 +34,8 @@ public abstract class Transport {
     }
     public void updateTyre(){
         System.out.println("Меняем покрышки");
+
 }
-
-
 
 }
 
